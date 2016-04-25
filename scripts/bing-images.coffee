@@ -23,7 +23,7 @@ module.exports = (robot) ->
       msg.send url
 
 imageMe = (msg, query, cb) ->
-  msg.http('https://api.datamarket.azure.com/Bing/Search/Image')
+  msg.http('https://api.datamarket.azure.com/Bing/Search/v1/Image')
     .header("Authorization", "Basic " + new Buffer("#{bingAccountKey}:#{bingAccountKey}").toString('base64'))
     .query(Query: "'" + query + "'", $format: "json", $top: 50)
     .get() (err, res, body) ->
